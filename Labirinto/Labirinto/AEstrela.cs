@@ -90,6 +90,8 @@ namespace Labirinto
                     lista_aberta.Add(filho);
                 }
             }
+
+            return new List<(int, int)>();
         }
     }
 }
