@@ -27,7 +27,8 @@ namespace Labirinto
                 //nó atual
                 No noAtual = lista_aberta[0];
                 int indiceAtual = 0;
-
+                
+                //se nos nós da lista aberta existir algum com um fator menor do que o nosso nó atual, começar por ele, pois tem "mais chance" de ser o melhor caminho.
                 for (int i = 0; i < lista_aberta.Count; i++)
                     if (lista_aberta[i].f < noAtual.f)
                     {
@@ -57,10 +58,10 @@ namespace Labirinto
                 foreach ((int, int) adjacente in nosAdjacentes)
                 {
                     (int, int) posicaoDoNo = (noAtual.posicao.Item1 + adjacente.Item1, noAtual.posicao.Item2 + adjacente.Item2);
-
+                    //se o nó adjcante estiver fora dos limites da matriz
                     if (posicaoDoNo.Item1 > (labirinto.GetLength(0) - 1) || posicaoDoNo.Item1 < 0 || posicaoDoNo.Item2 > (labirinto.GetLength(1) - 1) || posicaoDoNo.Item2 < 0)
                         continue;
-
+                    //se existir um obstáculo no nó adjacente
                     if (labirinto[posicaoDoNo.Item1, posicaoDoNo.Item2] != 0)
                         continue;
 
@@ -71,7 +72,7 @@ namespace Labirinto
 
                 foreach (No filho in filhos)
                 {
-                    //filho está na lista fechada
+                    //filho já foi visitado
                     foreach (No filho_fechado in lista_fechada)
                         if (filho.Equals(filho_fechado))
                             continue;
@@ -82,7 +83,7 @@ namespace Labirinto
                     filho.h = (int)Math.Pow((filho.posicao.Item1 - final.posicao.Item1), 2) + (int)Math.Pow((filho.posicao.Item2 - final.posicao.Item2), 2);
                     filho.f = filho.g + filho.h;
 
-                    //filho já está na lista aberta
+                    //filho já está na lista de nós a visitar
                     foreach (No filho_aberto in lista_aberta)
                         if (filho.Equals(filho_aberto))
                             continue;
