@@ -79,8 +79,11 @@ namespace Labirinto
 
                     //criar o valor f, g e h
 
+                    //quantidade de passos até chegar aqui
                     filho.g = noAtual.g + 1;
+                    //distância euclidiana entre o ponto atual e o ponto que eu quero chegar
                     filho.h = (int)Math.Pow((filho.posicao.Item1 - final.posicao.Item1), 2) + (int)Math.Pow((filho.posicao.Item2 - final.posicao.Item2), 2);
+                    //soma da quantidade de passos dadas mais a distância
                     filho.f = filho.g + filho.h;
 
                     //filho já está na lista de nós a visitar
