@@ -8,9 +8,9 @@ namespace Labirinto
     {
         public int g, h, f;
         public No pai;
-        public Tuple<int, int> posicao;
+        public (int, int) posicao;
 
-        public No(No pai=null, Tuple<int, int> posicao=null)
+        public No(No pai, (int, int) posicao)
         {
             this.pai = pai;
             this.posicao = posicao;
@@ -18,7 +18,7 @@ namespace Labirinto
             this.g = this.h = this.f = 0;
         }
 
-        public bool equals(No outro)
+        public bool Equals(No outro)
         {
             return this.posicao == outro.posicao;
         }
