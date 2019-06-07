@@ -14,7 +14,7 @@ namespace Labirinto
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                 { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
@@ -22,7 +22,7 @@ namespace Labirinto
             };
 
             (int, int) inicio = (0, 0);
-            (int, int) fim = (7, 6);
+            (int, int) fim = (6, 9);
 
             List<(int, int)> caminho = AEstrela.Resolver(labirinto, inicio, fim);
 

@@ -22,5 +22,23 @@ namespace Labirinto
         {
             return this.posicao == outro.posicao;
         }
+
+        
+    }
+
+    public class tupleComparer : IEqualityComparer<No>
+    {
+        public bool Equals(No no1, No no2 )
+        {
+            //if (tup1 == null && tup2 == null) { return true; }
+            //if (tup1 == null | tup2 == null) { return false; }
+            if (no1.posicao.Item1 == no2.posicao.Item1 && no1.posicao.Item2 == no2.posicao.Item2) { return true; }
+            return false;
+        }
+        public int GetHashCode(No no)
+        {
+            string code = no.posicao.Item1 + "," + no.posicao.Item2;
+            return code.GetHashCode();
+        }
     }
 }

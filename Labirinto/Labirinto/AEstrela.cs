@@ -17,7 +17,7 @@ namespace Labirinto
             No final = new No(null, fim);
 
             List<No> lista_aberta = new List<No>();
-            HashSet<No> lista_fechada = new HashSet<No>();
+            HashSet<No> lista_fechada = new HashSet<No>(new tupleComparer());
 
             lista_aberta.Add(inicial);
 
@@ -72,10 +72,11 @@ namespace Labirinto
 
                 foreach (No filho in filhos)
                 {
-                    //filho já foi visitado
+                    //filho já foi visitado;
                     if (lista_fechada.Contains(filho))
+                    {
                         continue;
-
+                    }
                     //criar o valor f, g e h
 
                     //quantidade de passos até chegar aqui
