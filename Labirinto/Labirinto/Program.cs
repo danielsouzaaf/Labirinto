@@ -32,6 +32,8 @@ namespace Labirinto
                 if (!tuple.Equals(fim))
                     Console.Write("->");
             }
+            if(caminho.Count < 1)
+                Console.WriteLine("Não existe um caminho para chegar no ponto desejado.");
 
             Console.ReadKey();
         }

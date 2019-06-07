@@ -17,7 +17,7 @@ namespace Labirinto
             No final = new No(null, fim);
 
             List<No> lista_aberta = new List<No>();
-            List<No> lista_fechada = new List<No>();
+            HashSet<No> lista_fechada = new HashSet<No>();
 
             lista_aberta.Add(inicial);
 
@@ -73,9 +73,8 @@ namespace Labirinto
                 foreach (No filho in filhos)
                 {
                     //filho já foi visitado
-                    foreach (No filho_fechado in lista_fechada)
-                        if (filho.Equals(filho_fechado))
-                            continue;
+                    if (lista_fechada.Contains(filho))
+                        continue;
 
                     //criar o valor f, g e h
 
